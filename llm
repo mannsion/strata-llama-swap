@@ -1,0 +1,71 @@
+#!/usr/bin/env bash
+# Qwen3.8-Flash-Next-Uncensored on an AMD Radeon AI PRO R9700: Strata behind llama-swap, one OpenAI/Anthropic API.
+#   ./llm setup       write .env for this machine (GPU, groups, paths); edit it after if you like
+#   ./llm download    fetch the models from Hugging Face (needs the hf CLI; ~190 GB)
+#   ./llm build       build the Strata and llama-swap images (Strata takes a while)
+#   ./llm up          start the API and wait until the default model is loaded
+#   ./llm stop | status | logs [swap|strata-i1-iq4_xs|strata-iq4_xs]
+#   ./llm bench-data                  fetch the benchmark datasets (once)
+#   ./llm bench [bench.py options]    benchmark the default model (bench/bench.py --help)
+set -euo pipefail
+cd "$(dirname "$0")"
+envf() { grep -E "^$1=" .env 2>/dev/null | tail -1 | cut -d= -f2- | sed 's/ *#.*//'; }
+need_env() { [ -f .env ] || { echo "no .env yet: run ./llm setup"; exit 2; }; }
+dc() { docker compose --profile models "$@"; }
+api() { echo "http://$(envf BIND_ADDR):$(envf API_PORT)"; }
+
+setup() {
+  [ -f .env ] && { echo ".env exists; delete it to start over"; exit 2; }
+  local pci="" best=0 d v
+  for d in /sys/bus/pci/devices/*; do        # the AMD GPU with the most VRAM (the R9700, not an iGPU)
+    [ "$(cat "$d/vendor" 2>/dev/null)" = 0x1002 ] && [ -r "$d/mem_info_vram_total" ] || continue
+    v=$(cat "$d/mem_info_vram_total"); [ "$v" -gt "$best" ] && { best=$v; pci=$(basename "$d"); }
+  done
+  [ -n "$pci" ] || { echo "no AMD GPU found (is amdgpu loaded?)"; exit 4; }
+  local hub=${HF_HUB_CACHE:-${HF_HOME:-$HOME/.cache/huggingface}/hub}
+  sed -e "s|^HF_HUB=.*|HF_HUB=$hub|" -e "s|^DATA_DIR=.*|DATA_DIR=$PWD/data|" -e "s|^UID_GID=.*|UID_GID=$(id -u):$(id -g)|" \
+      -e "s|^RENDER_GID=.*|RENDER_GID=$(getent group render | cut -d: -f3)|" -e "s|^VIDEO_GID=.*|VIDEO_GID=$(getent group video | cut -d: -f3)|" \
+      -e "s|^DOCKER_GID=.*|DOCKER_GID=$(getent group docker | cut -d: -f3)|" -e "s|^GPU_PCI=.*|GPU_PCI=$pci|" \
+      -e "s|^ALLOWED_HOSTS=.*|ALLOWED_HOSTS=$(hostname)|" .env.example > .env
+  echo "wrote .env: GPU $pci ($((best / 1073741824)) GiB), models in $hub, engine state in $PWD/data"
+  echo "the API listens on 127.0.0.1 only; set BIND_ADDR in .env to reach it from other machines"
+}
+
+download() {
+  need_env; command -v hf >/dev/null || { echo "needs the hf CLI: pip install -U huggingface_hub"; exit 2; }
+  export HF_HUB_CACHE=$(envf HF_HUB) HF_XET_HIGH_PERFORMANCE=1
+  hf download mradermacher/Qwen3.8-Flash-Next-Uncensored-i1-GGUF Qwen3.8-Flash-Next-Uncensored.i1-IQ4_XS.gguf \
+    --revision 27694ee82244cdac3539501330e9bbde98d5d8b8
+  hf download mradermacher/Qwen3.8-Flash-Next-Uncensored-GGUF Qwen3.8-Flash-Next-Uncensored.IQ4_XS.gguf \
+    Qwen3.8-Flash-Next-Uncensored.mmproj-f16.gguf --revision 3aa3ff434a0dc2b9dd6886fe12da134756229f74
+}
+
+case "${1:-status}" in
+  setup) setup ;;
+  download) download ;;
+  build)
+    docker build --network host -t local-llm/strata:gfx1201 -f strata/Dockerfile --build-context files=strata vendor/strata
+    docker build --network host -t local-llm/swap:260 swap
+    docker build --network host -t local-llm/sandbox:py312 bench/sandbox ;;
+  up)
+    need_env; mkdir -p "$(envf DATA_DIR)/strata"
+    dc up -d --no-build --force-recreate swap
+    echo -n "loading (the first start packs the model once, a few minutes)"
+    for _ in $(seq 1 720); do
+      if curl -fs "$(api)/running" 2>/dev/null | grep -q '"state":"ready"'; then
+        echo " ready: $(api)/v1"; curl -s "$(api)/v1/models" | grep -o '"id":"[^"]*"'; exit 0; fi
+      [ "$(docker inspect -f '{{.State.Running}}' local-llm-swap-1 2>/dev/null)" = true ] || {
+        echo " FAILED"; docker logs --tail 40 local-llm-swap-1; exit 1; }
+      echo -n .; sleep 5
+    done
+    echo " timeout"; exit 1 ;;
+  stop) need_env; dc stop ;;
+  status) need_env; dc ps --format 'table {{.Service}}\t{{.Status}}'; curl -s "$(api)/running" || true; echo ;;
+  logs) need_env; dc logs -f --tail 100 "${2:-swap}" ;;
+  bench-data)
+    mkdir -p bench/data
+    docker run --rm --network host --user "$(id -u):$(id -g)" -e HOME=/tmp -w /tmp -v "$PWD/bench/prep.py:/prep.py:ro" \
+      -v "$PWD/bench/data:/out" python:3.12-slim sh -c 'pip install -q --user --disable-pip-version-check pyarrow==21.0.0 && python /prep.py /out' ;;
+  bench) need_env; shift; API_HOST=$(envf BIND_ADDR) API_PORT=$(envf API_PORT) python3 bench/bench.py "$@" ;;
+  *) sed -n 2,10p "$0"; exit 2 ;;
+esac

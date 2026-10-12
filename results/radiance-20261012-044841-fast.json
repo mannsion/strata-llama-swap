@@ -1,0 +1,1260 @@
+{
+ "engine": "radiance",
+ "model": "",
+ "thinking": false,
+ "quick": false,
+ "fast": true,
+ "started": "2026-10-12 04:25:43",
+ "system_loaded": {
+  "vram_used_gib": 31.726699829101562,
+  "container_mem": "97.86GiB / 124.7GiB",
+  "models": {
+   "object": "list",
+   "data": [
+    {
+     "id": "local",
+     "object": "model",
+     "created": 1791793542,
+     "owned_by": "radiance",
+     "max_model_len": 262144,
+     "root": "/hub/models--StillDeadcode--qwen3.8-next-flash-uncensored-fp8-iq4r-moe/snapshots/9a245e2952eb0d54313bb0eb373fb5c559be00d6/qwen3.8-next-flash-uncensored-fp8-iq4r-moe.rad",
+     "capabilities": {
+      "chat": true,
+      "tools": true,
+      "reasoning": true,
+      "grammar": true,
+      "embedding": false,
+      "image": true,
+      "video": true,
+      "audio": false,
+      "logprobs": true,
+      "reasoning_efforts": [
+       "none",
+       "minimal",
+       "low",
+       "medium",
+       "xhigh"
+      ]
+     }
+    }
+   ]
+  }
+ },
+ "speed": {
+  "prefill": [
+   {
+    "target": 4096,
+    "runs": [
+     {
+      "prompt_tokens": 4139,
+      "ttft_s": 2.597293175997038,
+      "prefill_tok_s": 1593.5821332188032
+     }
+    ],
+    "median_tok_s": 1593.5821332188032,
+    "median_ttft_s": 2.597293175997038
+   },
+   {
+    "target": 16384,
+    "runs": [
+     {
+      "prompt_tokens": 16596,
+      "ttft_s": 9.505506016001164,
+      "prefill_tok_s": 1745.9354580453687
+     }
+    ],
+    "median_tok_s": 1745.9354580453687,
+    "median_ttft_s": 9.505506016001164
+   },
+   {
+    "target": 65536,
+    "runs": [
+     {
+      "prompt_tokens": 67843,
+      "ttft_s": 38.12750302699715,
+      "prefill_tok_s": 1779.3717032023326
+     }
+    ],
+    "median_tok_s": 1779.3717032023326,
+    "median_ttft_s": 38.12750302699715
+   },
+   {
+    "target": 131072,
+    "runs": [
+     {
+      "prompt_tokens": 131658,
+      "ttft_s": 75.35568975099886,
+      "prefill_tok_s": 1747.1540693880363
+     }
+    ],
+    "median_tok_s": 1747.1540693880363,
+    "median_ttft_s": 75.35568975099886
+   },
+   {
+    "target": 250000,
+    "runs": [
+     {
+      "prompt_tokens": 246587,
+      "ttft_s": 144.12374942200404,
+      "prefill_tok_s": 1710.93939055094
+     }
+    ],
+    "median_tok_s": 1710.93939055094,
+    "median_ttft_s": 144.12374942200404
+   }
+  ],
+  "decode": [
+   {
+    "task": "prose",
+    "context": 0,
+    "runs": [
+     {
+      "completion_tokens": 512,
+      "decode_tok_s": 40.681713251659666,
+      "ttft_s": 0.2849169429973699
+     }
+    ],
+    "median_tok_s": 40.681713251659666
+   },
+   {
+    "task": "code",
+    "context": 0,
+    "runs": [
+     {
+      "completion_tokens": 512,
+      "decode_tok_s": 65.3689067497502,
+      "ttft_s": 0.2930149710009573
+     }
+    ],
+    "median_tok_s": 65.3689067497502
+   },
+   {
+    "task": "prose",
+    "context": 245760,
+    "runs": [
+     {
+      "completion_tokens": 512,
+      "decode_tok_s": 41.72299121129412,
+      "ttft_s": 140.70168026800093
+     }
+    ],
+    "median_tok_s": 41.72299121129412
+   }
+  ],
+  "concurrency": [
+   {
+    "streams": 4,
+    "total_tokens": 1024,
+    "wall_s": 9.355120224994607,
+    "aggregate_tok_s": 109.45877502077641,
+    "per_stream_tok_s": 28.964688187686548
+   }
+  ]
+ },
+ "gsm8k": {
+  "accuracy": 0.95,
+  "n": 60,
+  "items": [
+   {
+    "ok": true,
+    "gold": "8",
+    "pred": "8",
+    "tokens": 973
+   },
+   {
+    "ok": true,
+    "gold": "20",
+    "pred": "20",
+    "tokens": 337
+   },
+   {
+    "ok": true,
+    "gold": "104",
+    "pred": "104",
+    "tokens": 470
+   },
+   {
+    "ok": true,
+    "gold": "800",
+    "pred": "800",
+    "tokens": 436
+   },
+   {
+    "ok": true,
+    "gold": "240",
+    "pred": "240",
+    "tokens": 214
+   },
+   {
+    "ok": true,
+    "gold": "48",
+    "pred": "48",
+    "tokens": 382
+   },
+   {
+    "ok": true,
+    "gold": "80",
+    "pred": "80",
+    "tokens": 487
+   },
+   {
+    "ok": true,
+    "gold": "31",
+    "pred": "31",
+    "tokens": 411
+   },
+   {
+    "ok": true,
+    "gold": "54",
+    "pred": "54",
+    "tokens": 441
+   },
+   {
+    "ok": true,
+    "gold": "50",
+    "pred": "50",
+    "tokens": 784
+   },
+   {
+    "ok": true,
+    "gold": "90",
+    "pred": "90",
+    "tokens": 134
+   },
+   {
+    "ok": true,
+    "gold": "20",
+    "pred": "20",
+    "tokens": 217
+   },
+   {
+    "ok": true,
+    "gold": "195",
+    "pred": "195",
+    "tokens": 424
+   },
+   {
+    "ok": true,
+    "gold": "68",
+    "pred": "68",
+    "tokens": 390
+   },
+   {
+    "ok": true,
+    "gold": "3",
+    "pred": "3",
+    "tokens": 232
+   },
+   {
+    "ok": true,
+    "gold": "4",
+    "pred": "4",
+    "tokens": 244
+   },
+   {
+    "ok": true,
+    "gold": "10",
+    "pred": "10",
+    "tokens": 229
+   },
+   {
+    "ok": false,
+    "gold": "18",
+    "pred": "10",
+    "tokens": 832
+   },
+   {
+    "ok": true,
+    "gold": "15",
+    "pred": "15",
+    "tokens": 441
+   },
+   {
+    "ok": true,
+    "gold": "11",
+    "pred": "11",
+    "tokens": 369
+   },
+   {
+    "ok": true,
+    "gold": "2",
+    "pred": "2",
+    "tokens": 314
+   },
+   {
+    "ok": true,
+    "gold": "5",
+    "pred": "5",
+    "tokens": 206
+   },
+   {
+    "ok": true,
+    "gold": "6",
+    "pred": "6",
+    "tokens": 299
+   },
+   {
+    "ok": true,
+    "gold": "6",
+    "pred": "6",
+    "tokens": 307
+   },
+   {
+    "ok": true,
+    "gold": "80",
+    "pred": "80",
+    "tokens": 351
+   },
+   {
+    "ok": true,
+    "gold": "30",
+    "pred": "30",
+    "tokens": 639
+   },
+   {
+    "ok": true,
+    "gold": "43500",
+    "pred": "43500",
+    "tokens": 969
+   },
+   {
+    "ok": true,
+    "gold": "2100",
+    "pred": "2100",
+    "tokens": 509
+   },
+   {
+    "ok": true,
+    "gold": "53",
+    "pred": "53",
+    "tokens": 169
+   },
+   {
+    "ok": true,
+    "gold": "20",
+    "pred": "20",
+    "tokens": 247
+   },
+   {
+    "ok": true,
+    "gold": "298",
+    "pred": "298",
+    "tokens": 458
+   },
+   {
+    "ok": true,
+    "gold": "13",
+    "pred": "13",
+    "tokens": 500
+   },
+   {
+    "ok": true,
+    "gold": "50",
+    "pred": "50",
+    "tokens": 213
+   },
+   {
+    "ok": true,
+    "gold": "2",
+    "pred": "2",
+    "tokens": 343
+   },
+   {
+    "ok": true,
+    "gold": "240",
+    "pred": "240",
+    "tokens": 214
+   },
+   {
+    "ok": true,
+    "gold": "14000",
+    "pred": "14000",
+    "tokens": 405
+   },
+   {
+    "ok": true,
+    "gold": "15",
+    "pred": "15",
+    "tokens": 281
+   },
+   {
+    "ok": true,
+    "gold": "410",
+    "pred": "410",
+    "tokens": 355
+   },
+   {
+    "ok": true,
+    "gold": "5",
+    "pred": "5",
+    "tokens": 627
+   },
+   {
+    "ok": false,
+    "gold": "360",
+    "pred": "1800",
+    "tokens": 413
+   },
+   {
+    "ok": true,
+    "gold": "11",
+    "pred": "11",
+    "tokens": 525
+   },
+   {
+    "ok": true,
+    "gold": "52",
+    "pred": "52",
+    "tokens": 344
+   },
+   {
+    "ok": true,
+    "gold": "25",
+    "pred": "25",
+    "tokens": 508
+   },
+   {
+    "ok": false,
+    "gold": "480",
+    "pred": "-120",
+    "tokens": 405
+   },
+   {
+    "ok": true,
+    "gold": "3",
+    "pred": "3",
+    "tokens": 429
+   },
+   {
+    "ok": true,
+    "gold": "130000",
+    "pred": "130000",
+    "tokens": 265
+   },
+   {
+    "ok": true,
+    "gold": "1",
+    "pred": "1",
+    "tokens": 345
+   },
+   {
+    "ok": true,
+    "gold": "32",
+    "pred": "32",
+    "tokens": 377
+   },
+   {
+    "ok": true,
+    "gold": "1000",
+    "pred": "1000",
+    "tokens": 225
+   },
+   {
+    "ok": true,
+    "gold": "480",
+    "pred": "480",
+    "tokens": 237
+   },
+   {
+    "ok": true,
+    "gold": "9",
+    "pred": "9",
+    "tokens": 289
+   },
+   {
+    "ok": true,
+    "gold": "96",
+    "pred": "96",
+    "tokens": 260
+   },
+   {
+    "ok": true,
+    "gold": "93",
+    "pred": "93",
+    "tokens": 178
+   },
+   {
+    "ok": true,
+    "gold": "2",
+    "pred": "2",
+    "tokens": 328
+   },
+   {
+    "ok": true,
+    "gold": "17",
+    "pred": "17",
+    "tokens": 166
+   },
+   {
+    "ok": true,
+    "gold": "29",
+    "pred": "29",
+    "tokens": 527
+   },
+   {
+    "ok": true,
+    "gold": "43",
+    "pred": "43",
+    "tokens": 415
+   },
+   {
+    "ok": true,
+    "gold": "296",
+    "pred": "296",
+    "tokens": 316
+   },
+   {
+    "ok": true,
+    "gold": "27",
+    "pred": "27",
+    "tokens": 220
+   },
+   {
+    "ok": true,
+    "gold": "2325",
+    "pred": "2325",
+    "tokens": 218
+   }
+  ]
+ },
+ "mmlu_pro": {
+  "accuracy": 0.55,
+  "n": 60,
+  "items": [
+   {
+    "ok": false,
+    "gold": "H",
+    "pred": null,
+    "category": "business",
+    "tokens": 768
+   },
+   {
+    "ok": false,
+    "gold": "J",
+    "pred": null,
+    "category": "business",
+    "tokens": 768
+   },
+   {
+    "ok": true,
+    "gold": "D",
+    "pred": "D",
+    "category": "business",
+    "tokens": 633
+   },
+   {
+    "ok": false,
+    "gold": "E",
+    "pred": null,
+    "category": "business",
+    "tokens": 768
+   },
+   {
+    "ok": false,
+    "gold": "G",
+    "pred": null,
+    "category": "business",
+    "tokens": 768
+   },
+   {
+    "ok": false,
+    "gold": "G",
+    "pred": "F",
+    "category": "law",
+    "tokens": 768
+   },
+   {
+    "ok": true,
+    "gold": "J",
+    "pred": "J",
+    "category": "law",
+    "tokens": 629
+   },
+   {
+    "ok": false,
+    "gold": "F",
+    "pred": "A",
+    "category": "law",
+    "tokens": 768
+   },
+   {
+    "ok": false,
+    "gold": "A",
+    "pred": null,
+    "category": "law",
+    "tokens": 768
+   },
+   {
+    "ok": true,
+    "gold": "J",
+    "pred": "J",
+    "category": "law",
+    "tokens": 443
+   },
+   {
+    "ok": false,
+    "gold": "C",
+    "pred": null,
+    "category": "law",
+    "tokens": 768
+   },
+   {
+    "ok": true,
+    "gold": "A",
+    "pred": "A",
+    "category": "law",
+    "tokens": 362
+   },
+   {
+    "ok": true,
+    "gold": "E",
+    "pred": "E",
+    "category": "law",
+    "tokens": 384
+   },
+   {
+    "ok": false,
+    "gold": "B",
+    "pred": null,
+    "category": "law",
+    "tokens": 768
+   },
+   {
+    "ok": true,
+    "gold": "C",
+    "pred": "C",
+    "category": "law",
+    "tokens": 768
+   },
+   {
+    "ok": false,
+    "gold": "G",
+    "pred": "H",
+    "category": "law",
+    "tokens": 768
+   },
+   {
+    "ok": false,
+    "gold": "E",
+    "pred": null,
+    "category": "law",
+    "tokens": 768
+   },
+   {
+    "ok": true,
+    "gold": "J",
+    "pred": "J",
+    "category": "psychology",
+    "tokens": 297
+   },
+   {
+    "ok": true,
+    "gold": "G",
+    "pred": "G",
+    "category": "psychology",
+    "tokens": 265
+   },
+   {
+    "ok": true,
+    "gold": "B",
+    "pred": "B",
+    "category": "psychology",
+    "tokens": 162
+   },
+   {
+    "ok": true,
+    "gold": "I",
+    "pred": "I",
+    "category": "biology",
+    "tokens": 418
+   },
+   {
+    "ok": false,
+    "gold": "J",
+    "pred": null,
+    "category": "biology",
+    "tokens": 768
+   },
+   {
+    "ok": true,
+    "gold": "B",
+    "pred": "B",
+    "category": "biology",
+    "tokens": 192
+   },
+   {
+    "ok": true,
+    "gold": "J",
+    "pred": "J",
+    "category": "biology",
+    "tokens": 459
+   },
+   {
+    "ok": true,
+    "gold": "B",
+    "pred": "B",
+    "category": "biology",
+    "tokens": 243
+   },
+   {
+    "ok": true,
+    "gold": "D",
+    "pred": "D",
+    "category": "biology",
+    "tokens": 547
+   },
+   {
+    "ok": true,
+    "gold": "C",
+    "pred": "C",
+    "category": "chemistry",
+    "tokens": 610
+   },
+   {
+    "ok": false,
+    "gold": "H",
+    "pred": null,
+    "category": "chemistry",
+    "tokens": 768
+   },
+   {
+    "ok": false,
+    "gold": "B",
+    "pred": null,
+    "category": "chemistry",
+    "tokens": 768
+   },
+   {
+    "ok": true,
+    "gold": "E",
+    "pred": "E",
+    "category": "chemistry",
+    "tokens": 553
+   },
+   {
+    "ok": true,
+    "gold": "A",
+    "pred": "A",
+    "category": "history",
+    "tokens": 682
+   },
+   {
+    "ok": true,
+    "gold": "B",
+    "pred": "B",
+    "category": "history",
+    "tokens": 129
+   },
+   {
+    "ok": false,
+    "gold": "D",
+    "pred": null,
+    "category": "history",
+    "tokens": 768
+   },
+   {
+    "ok": true,
+    "gold": "H",
+    "pred": "H",
+    "category": "other",
+    "tokens": 503
+   },
+   {
+    "ok": false,
+    "gold": "D",
+    "pred": "B",
+    "category": "other",
+    "tokens": 381
+   },
+   {
+    "ok": true,
+    "gold": "C",
+    "pred": "C",
+    "category": "health",
+    "tokens": 119
+   },
+   {
+    "ok": true,
+    "gold": "J",
+    "pred": "J",
+    "category": "health",
+    "tokens": 298
+   },
+   {
+    "ok": true,
+    "gold": "B",
+    "pred": "B",
+    "category": "health",
+    "tokens": 576
+   },
+   {
+    "ok": false,
+    "gold": "B",
+    "pred": "D",
+    "category": "health",
+    "tokens": 489
+   },
+   {
+    "ok": true,
+    "gold": "I",
+    "pred": "I",
+    "category": "health",
+    "tokens": 375
+   },
+   {
+    "ok": true,
+    "gold": "B",
+    "pred": "B",
+    "category": "health",
+    "tokens": 519
+   },
+   {
+    "ok": true,
+    "gold": "B",
+    "pred": "B",
+    "category": "economics",
+    "tokens": 489
+   },
+   {
+    "ok": true,
+    "gold": "G",
+    "pred": "G",
+    "category": "economics",
+    "tokens": 417
+   },
+   {
+    "ok": true,
+    "gold": "G",
+    "pred": "G",
+    "category": "economics",
+    "tokens": 682
+   },
+   {
+    "ok": false,
+    "gold": "G",
+    "pred": null,
+    "category": "math",
+    "tokens": 768
+   },
+   {
+    "ok": false,
+    "gold": "F",
+    "pred": null,
+    "category": "math",
+    "tokens": 768
+   },
+   {
+    "ok": true,
+    "gold": "I",
+    "pred": "I",
+    "category": "math",
+    "tokens": 348
+   },
+   {
+    "ok": true,
+    "gold": "A",
+    "pred": "A",
+    "category": "math",
+    "tokens": 268
+   },
+   {
+    "ok": true,
+    "gold": "E",
+    "pred": "E",
+    "category": "math",
+    "tokens": 165
+   },
+   {
+    "ok": false,
+    "gold": "D",
+    "pred": "I",
+    "category": "math",
+    "tokens": 664
+   },
+   {
+    "ok": false,
+    "gold": "C",
+    "pred": "A",
+    "category": "math",
+    "tokens": 768
+   },
+   {
+    "ok": true,
+    "gold": "A",
+    "pred": "A",
+    "category": "physics",
+    "tokens": 102
+   },
+   {
+    "ok": false,
+    "gold": "D",
+    "pred": null,
+    "category": "philosophy",
+    "tokens": 768
+   },
+   {
+    "ok": true,
+    "gold": "B",
+    "pred": "B",
+    "category": "philosophy",
+    "tokens": 395
+   },
+   {
+    "ok": true,
+    "gold": "F",
+    "pred": "F",
+    "category": "philosophy",
+    "tokens": 122
+   },
+   {
+    "ok": false,
+    "gold": "A",
+    "pred": "G",
+    "category": "engineering",
+    "tokens": 768
+   },
+   {
+    "ok": false,
+    "gold": "J",
+    "pred": null,
+    "category": "engineering",
+    "tokens": 768
+   },
+   {
+    "ok": false,
+    "gold": "B",
+    "pred": null,
+    "category": "engineering",
+    "tokens": 768
+   },
+   {
+    "ok": false,
+    "gold": "B",
+    "pred": null,
+    "category": "engineering",
+    "tokens": 768
+   },
+   {
+    "ok": false,
+    "gold": "B",
+    "pred": null,
+    "category": "engineering",
+    "tokens": 768
+   }
+  ]
+ },
+ "humaneval": {
+  "accuracy": 0.98,
+  "n": 50,
+  "items": [
+   {
+    "ok": true,
+    "task": "HumanEval/0",
+    "tokens": 173
+   },
+   {
+    "ok": true,
+    "task": "HumanEval/1",
+    "tokens": 230
+   },
+   {
+    "ok": true,
+    "task": "HumanEval/2",
+    "tokens": 97
+   },
+   {
+    "ok": true,
+    "task": "HumanEval/3",
+    "tokens": 157
+   },
+   {
+    "ok": true,
+    "task": "HumanEval/4",
+    "tokens": 169
+   },
+   {
+    "ok": true,
+    "task": "HumanEval/5",
+    "tokens": 152
+   },
+   {
+    "ok": true,
+    "task": "HumanEval/6",
+    "tokens": 216
+   },
+   {
+    "ok": true,
+    "task": "HumanEval/7",
+    "tokens": 112
+   },
+   {
+    "ok": true,
+    "task": "HumanEval/8",
+    "tokens": 163
+   },
+   {
+    "ok": true,
+    "task": "HumanEval/9",
+    "tokens": 160
+   },
+   {
+    "ok": true,
+    "task": "HumanEval/10",
+    "tokens": 270
+   },
+   {
+    "ok": true,
+    "task": "HumanEval/11",
+    "tokens": 140
+   },
+   {
+    "ok": true,
+    "task": "HumanEval/12",
+    "tokens": 128
+   },
+   {
+    "ok": true,
+    "task": "HumanEval/13",
+    "tokens": 107
+   },
+   {
+    "ok": true,
+    "task": "HumanEval/14",
+    "tokens": 84
+   },
+   {
+    "ok": true,
+    "task": "HumanEval/15",
+    "tokens": 92
+   },
+   {
+    "ok": true,
+    "task": "HumanEval/16",
+    "tokens": 81
+   },
+   {
+    "ok": true,
+    "task": "HumanEval/17",
+    "tokens": 233
+   },
+   {
+    "ok": true,
+    "task": "HumanEval/18",
+    "tokens": 161
+   },
+   {
+    "ok": true,
+    "task": "HumanEval/19",
+    "tokens": 300
+   },
+   {
+    "ok": true,
+    "task": "HumanEval/20",
+    "tokens": 273
+   },
+   {
+    "ok": true,
+    "task": "HumanEval/21",
+    "tokens": 172
+   },
+   {
+    "ok": true,
+    "task": "HumanEval/22",
+    "tokens": 119
+   },
+   {
+    "ok": true,
+    "task": "HumanEval/23",
+    "tokens": 53
+   },
+   {
+    "ok": true,
+    "task": "HumanEval/24",
+    "tokens": 91
+   },
+   {
+    "ok": true,
+    "task": "HumanEval/25",
+    "tokens": 202
+   },
+   {
+    "ok": true,
+    "task": "HumanEval/26",
+    "tokens": 119
+   },
+   {
+    "ok": true,
+    "task": "HumanEval/27",
+    "tokens": 58
+   },
+   {
+    "ok": true,
+    "task": "HumanEval/28",
+    "tokens": 70
+   },
+   {
+    "ok": true,
+    "task": "HumanEval/29",
+    "tokens": 107
+   },
+   {
+    "ok": true,
+    "task": "HumanEval/30",
+    "tokens": 139
+   },
+   {
+    "ok": true,
+    "task": "HumanEval/31",
+    "tokens": 193
+   },
+   {
+    "ok": false,
+    "task": "HumanEval/32",
+    "tokens": 511
+   },
+   {
+    "ok": true,
+    "task": "HumanEval/33",
+    "tokens": 269
+   },
+   {
+    "ok": true,
+    "task": "HumanEval/34",
+    "tokens": 87
+   },
+   {
+    "ok": true,
+    "task": "HumanEval/35",
+    "tokens": 97
+   },
+   {
+    "ok": true,
+    "task": "HumanEval/36",
+    "tokens": 139
+   },
+   {
+    "ok": true,
+    "task": "HumanEval/37",
+    "tokens": 252
+   },
+   {
+    "ok": true,
+    "task": "HumanEval/38",
+    "tokens": 144
+   },
+   {
+    "ok": true,
+    "task": "HumanEval/39",
+    "tokens": 251
+   },
+   {
+    "ok": true,
+    "task": "HumanEval/40",
+    "tokens": 235
+   },
+   {
+    "ok": true,
+    "task": "HumanEval/41",
+    "tokens": 163
+   },
+   {
+    "ok": true,
+    "task": "HumanEval/42",
+    "tokens": 132
+   },
+   {
+    "ok": true,
+    "task": "HumanEval/43",
+    "tokens": 201
+   },
+   {
+    "ok": true,
+    "task": "HumanEval/44",
+    "tokens": 158
+   },
+   {
+    "ok": true,
+    "task": "HumanEval/45",
+    "tokens": 60
+   },
+   {
+    "ok": true,
+    "task": "HumanEval/46",
+    "tokens": 293
+   },
+   {
+    "ok": true,
+    "task": "HumanEval/47",
+    "tokens": 153
+   },
+   {
+    "ok": true,
+    "task": "HumanEval/48",
+    "tokens": 87
+   },
+   {
+    "ok": true,
+    "task": "HumanEval/49",
+    "tokens": 134
+   }
+  ]
+ },
+ "needle": {
+  "accuracy": 1.0,
+  "n": 3,
+  "items": [
+   {
+    "ok": true,
+    "context": 33821,
+    "depth": 0.5
+   },
+   {
+    "ok": true,
+    "context": 138792,
+    "depth": 0.5
+   },
+   {
+    "ok": true,
+    "context": 260606,
+    "depth": 0.5
+   }
+  ]
+ },
+ "system_after": {
+  "vram_used_gib": 31.777690887451172,
+  "container_mem": "98.19GiB / 124.7GiB",
+  "models": {
+   "object": "list",
+   "data": [
+    {
+     "id": "local",
+     "object": "model",
+     "created": 1791793542,
+     "owned_by": "radiance",
+     "max_model_len": 262144,
+     "root": "/hub/models--StillDeadcode--qwen3.8-next-flash-uncensored-fp8-iq4r-moe/snapshots/9a245e2952eb0d54313bb0eb373fb5c559be00d6/qwen3.8-next-flash-uncensored-fp8-iq4r-moe.rad",
+     "capabilities": {
+      "chat": true,
+      "tools": true,
+      "reasoning": true,
+      "grammar": true,
+      "embedding": false,
+      "image": true,
+      "video": true,
+      "audio": false,
+      "logprobs": true,
+      "reasoning_efforts": [
+       "none",
+       "minimal",
+       "low",
+       "medium",
+       "xhigh"
+      ]
+     }
+    }
+   ]
+  }
+ },
+ "finished": "2026-10-12 04:48:41",
+ "load_s": 65
+}

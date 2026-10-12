@@ -1,0 +1,64 @@
+# Strata on an AMD Radeon AI PRO R9700 behind llama-swap: Qwen3.8-Flash-Next-Uncensored, 256K context, vision on the GPU.
+# The API is llama-swap at http://${BIND_ADDR}:${API_PORT}/v1; it starts the model a request names. Use ./llm.
+name: local-llm
+
+x-strata: &strata
+  image: local-llm/strata:gfx1201
+  profiles: [models]                       # started by llama-swap, not by `docker compose up`
+  network_mode: host
+  init: true
+  restart: "no"
+  user: "${UID_GID}"
+  devices:                                 # the R9700 only, by PCI address (card/render numbers change between boots)
+    - /dev/kfd
+    - { source: "/dev/dri/by-path/pci-${GPU_PCI}-card", target: /dev/dri/card0, permissions: rwm }
+    - { source: "/dev/dri/by-path/pci-${GPU_PCI}-render", target: /dev/dri/renderD128, permissions: rwm }
+  group_add: ["${RENDER_GID}", "${VIDEO_GID}"]
+  ulimits:
+    memlock: -1
+  stop_grace_period: 60s
+  logging:
+    driver: json-file
+    options: { max-size: 50m, max-file: "3" }
+  volumes:
+    - ${HF_HUB}:/hub:ro
+    - ${DATA_DIR}/strata:/data
+  environment: &strata-env
+    MMPROJ: /hub/models--mradermacher--Qwen3.8-Flash-Next-Uncensored-GGUF/snapshots/3aa3ff434a0dc2b9dd6886fe12da134756229f74/Qwen3.8-Flash-Next-Uncensored.mmproj-f16.gguf
+    VISION: gpu
+    HOST: 127.0.0.1                        # only llama-swap talks to it
+    PORT: ${PORT:-5800}
+    STRATA_ALLOWED_HOSTS: ${ALLOWED_HOSTS}
+    CONTEXT: ${STRATA_CONTEXT}
+    KV: int8
+    PREFILL: ${STRATA_PREFILL}
+    SPEC: ${STRATA_SPEC}
+    STRATA_HIP_WMMA: ${STRATA_HIP_WMMA}
+    EXTRA_ARGS: ${STRATA_EXTRA_ARGS}
+    HF_HOME: /data/hf
+
+services:
+  swap:
+    build: ./swap
+    image: local-llm/swap:260
+    network_mode: host
+    restart: unless-stopped
+    group_add: ["${DOCKER_GID}"]
+    command: ["-config", "/work/swap/config.yaml", "-listen", "${BIND_ADDR}:${API_PORT}"]
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - .:/work:ro                         # compose.yaml + .env, for starting the model services
+
+  strata-i1-iq4_xs:
+    <<: *strata
+    environment:
+      <<: *strata-env
+      MODEL_GGUF: /hub/models--mradermacher--Qwen3.8-Flash-Next-Uncensored-i1-GGUF/snapshots/27694ee82244cdac3539501330e9bbde98d5d8b8/Qwen3.8-Flash-Next-Uncensored.i1-IQ4_XS.gguf
+      MODEL_NAME: Qwen3.8-Flash-Next-Uncensored-i1-IQ4_XS
+
+  strata-iq4_xs:
+    <<: *strata
+    environment:
+      <<: *strata-env
+      MODEL_GGUF: /hub/models--mradermacher--Qwen3.8-Flash-Next-Uncensored-GGUF/snapshots/3aa3ff434a0dc2b9dd6886fe12da134756229f74/Qwen3.8-Flash-Next-Uncensored.IQ4_XS.gguf
+      MODEL_NAME: Qwen3.8-Flash-Next-Uncensored-IQ4_XS

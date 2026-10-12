@@ -1,0 +1,8 @@
+.env
+/data/
+bench/data/*
+!bench/data/stories.json
+results/*.ckpt
+results/*.tmp
+__pycache__/
+.claude/

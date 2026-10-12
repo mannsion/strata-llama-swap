@@ -1,0 +1,370 @@
+[
+ {
+  "id": "s00",
+  "genre": "fantasy",
+  "prompt": "Write a fantasy short story about a ferryman who carries the souls of forgotten gods. Length: 350-550 words. Tell it in third person (he/she/they). Use these words somewhere in the story: lantern, river. Reply with the story only.",
+  "min_words": 350,
+  "max_words": 550,
+  "must": [
+   "lantern",
+   "river"
+  ],
+  "pov": "third"
+ },
+ {
+  "id": "s01",
+  "genre": "science fiction",
+  "prompt": "Write a science fiction short story about the last technician awake on a generation ship. Length: 400-600 words. Tell it in first person (I/me). Use these words somewhere in the story: oxygen, Kepler. Reply with the story only.",
+  "min_words": 400,
+  "max_words": 600,
+  "must": [
+   "oxygen",
+   "Kepler"
+  ],
+  "pov": "first"
+ },
+ {
+  "id": "s02",
+  "genre": "mystery",
+  "prompt": "Write a mystery short story about a bookkeeper who finds one impossible entry. Length: 450-650 words. Tell it in third person (he/she/they). Use these words somewhere in the story: key, ledger, rain. Reply with the story only.",
+  "min_words": 450,
+  "max_words": 650,
+  "must": [
+   "key",
+   "ledger",
+   "rain"
+  ],
+  "pov": "third"
+ },
+ {
+  "id": "s03",
+  "genre": "horror",
+  "prompt": "Write a horror short story about a house that rearranges itself at night. Length: 300-500 words. Tell it in second person (you). Use these words somewhere in the story: mirror, basement. Reply with the story only.",
+  "min_words": 300,
+  "max_words": 500,
+  "must": [
+   "mirror",
+   "basement"
+  ],
+  "pov": "second"
+ },
+ {
+  "id": "s04",
+  "genre": "romance",
+  "prompt": "Write a romance short story about two strangers who keep missing each other by one stop. Length: 350-550 words. Tell it in first person (I/me). Use these words somewhere in the story: train, letter. Reply with the story only.",
+  "min_words": 350,
+  "max_words": 550,
+  "must": [
+   "train",
+   "letter"
+  ],
+  "pov": "first"
+ },
+ {
+  "id": "s05",
+  "genre": "comedy",
+  "prompt": "Write a comedy short story about a best man who loses the rings to an animal. Length: 250-450 words. Tell it in third person (he/she/they). Use these words somewhere in the story: goat, wedding. Reply with the story only.",
+  "min_words": 250,
+  "max_words": 450,
+  "must": [
+   "goat",
+   "wedding"
+  ],
+  "pov": "third"
+ },
+ {
+  "id": "s06",
+  "genre": "literary",
+  "prompt": "Write a literary short story about a widow cooking her husband's recipe for the first time. Length: 400-600 words. Tell it in third person (he/she/they). Use these words somewhere in the story: kitchen, salt. End the story with the words \"and the water kept boiling\". Reply with the story only.",
+  "min_words": 400,
+  "max_words": 600,
+  "must": [
+   "kitchen",
+   "salt"
+  ],
+  "pov": "third",
+  "ends_with": "and the water kept boiling"
+ },
+ {
+  "id": "s07",
+  "genre": "western",
+  "prompt": "Write a western short story about a sheriff who is secretly the outlaw everyone is hunting. Length: 350-550 words. Tell it in third person (he/she/they). Use these words somewhere in the story: dust, badge. Reply with the story only.",
+  "min_words": 350,
+  "max_words": 550,
+  "must": [
+   "dust",
+   "badge"
+  ],
+  "pov": "third"
+ },
+ {
+  "id": "s08",
+  "genre": "thriller",
+  "prompt": "Write a thriller short story about an interpreter who overhears something she should not. Length: 450-700 words. Tell it in first person (I/me). Use these words somewhere in the story: passport, Lisbon. Reply with the story only.",
+  "min_words": 450,
+  "max_words": 700,
+  "must": [
+   "passport",
+   "Lisbon"
+  ],
+  "pov": "first"
+ },
+ {
+  "id": "s09",
+  "genre": "fable",
+  "prompt": "Write a fable short story about why the fox fears the moon. Length: 200-350 words. Tell it in third person (he/she/they). Use these words somewhere in the story: fox, moon. End the story with the words \"and that is why the fox still hunts at night\". Reply with the story only.",
+  "min_words": 200,
+  "max_words": 350,
+  "must": [
+   "fox",
+   "moon"
+  ],
+  "pov": "third",
+  "ends_with": "and that is why the fox still hunts at night"
+ },
+ {
+  "id": "s10",
+  "genre": "historical",
+  "prompt": "Write a historical short story about an apprentice in Mainz who sees the future of books. Length: 450-650 words. Tell it in third person (he/she/they). Use these words somewhere in the story: printing press, 1455. Reply with the story only.",
+  "min_words": 450,
+  "max_words": 650,
+  "must": [
+   "printing press",
+   "1455"
+  ],
+  "pov": "third"
+ },
+ {
+  "id": "s11",
+  "genre": "cyberpunk",
+  "prompt": "Write a cyberpunk short story about a courier whose memories are being repossessed. Length: 350-550 words. Tell it in first person (I/me). Use these words somewhere in the story: neon, implant, debt. Reply with the story only.",
+  "min_words": 350,
+  "max_words": 550,
+  "must": [
+   "neon",
+   "implant",
+   "debt"
+  ],
+  "pov": "first"
+ },
+ {
+  "id": "s12",
+  "genre": "fairy tale",
+  "prompt": "Write a fairy tale short story about a retelling where the witch is the hero. Length: 300-500 words. Tell it in third person (he/she/they). Use these words somewhere in the story: spindle, bargain. Reply with the story only.",
+  "min_words": 300,
+  "max_words": 500,
+  "must": [
+   "spindle",
+   "bargain"
+  ],
+  "pov": "third"
+ },
+ {
+  "id": "s13",
+  "genre": "noir",
+  "prompt": "Write a noir short story about a detective hired to find himself. Length: 400-600 words. Tell it in first person (I/me). Use these words somewhere in the story: cigarette, pier. Reply with the story only.",
+  "min_words": 400,
+  "max_words": 600,
+  "must": [
+   "cigarette",
+   "pier"
+  ],
+  "pov": "first"
+ },
+ {
+  "id": "s14",
+  "genre": "adventure",
+  "prompt": "Write a adventure short story about two siblings crossing an ice field to reach a lost station. Length: 400-650 words. Tell it in third person (he/she/they). Use these words somewhere in the story: map, glacier. Reply with the story only.",
+  "min_words": 400,
+  "max_words": 650,
+  "must": [
+   "map",
+   "glacier"
+  ],
+  "pov": "third"
+ },
+ {
+  "id": "s15",
+  "genre": "slice of life",
+  "prompt": "Write a slice of life short story about an ordinary Tuesday morning in a city you just moved to. Length: 250-400 words. Tell it in second person (you). Use these words somewhere in the story: bus, umbrella. Reply with the story only.",
+  "min_words": 250,
+  "max_words": 400,
+  "must": [
+   "bus",
+   "umbrella"
+  ],
+  "pov": "second"
+ },
+ {
+  "id": "s16",
+  "genre": "dystopian",
+  "prompt": "Write a dystopian short story about a citizen who forgets the words to the national anthem. Length: 400-600 words. Tell it in third person (he/she/they). Use these words somewhere in the story: ration, anthem. Reply with the story only.",
+  "min_words": 400,
+  "max_words": 600,
+  "must": [
+   "ration",
+   "anthem"
+  ],
+  "pov": "third"
+ },
+ {
+  "id": "s17",
+  "genre": "magical realism",
+  "prompt": "Write a magical realism short story about a village where grief turns into honey. Length: 350-550 words. Tell it in third person (he/she/they). Use these words somewhere in the story: bees, grandmother. Reply with the story only.",
+  "min_words": 350,
+  "max_words": 550,
+  "must": [
+   "bees",
+   "grandmother"
+  ],
+  "pov": "third"
+ },
+ {
+  "id": "s18",
+  "genre": "space opera",
+  "prompt": "Write a space opera short story about the night before a peace treaty is signed. Length: 500-750 words. Tell it in third person (he/she/they). Use these words somewhere in the story: fleet, treaty, admiral. Reply with the story only.",
+  "min_words": 500,
+  "max_words": 750,
+  "must": [
+   "fleet",
+   "treaty",
+   "admiral"
+  ],
+  "pov": "third"
+ },
+ {
+  "id": "s19",
+  "genre": "ghost story",
+  "prompt": "Write a ghost story short story about a keeper who is not alone. Length: 300-500 words. Tell it in first person (I/me). Use these words somewhere in the story: lighthouse, fog. End the story with the words \"the light came on by itself\". Reply with the story only.",
+  "min_words": 300,
+  "max_words": 500,
+  "must": [
+   "lighthouse",
+   "fog"
+  ],
+  "pov": "first",
+  "ends_with": "the light came on by itself"
+ },
+ {
+  "id": "s20",
+  "genre": "children's",
+  "prompt": "Write a children's short story about a small dragon who is afraid of fire. Length: 200-350 words. Tell it in third person (he/she/they). Use these words somewhere in the story: dragon, library. Reply with the story only.",
+  "min_words": 200,
+  "max_words": 350,
+  "must": [
+   "dragon",
+   "library"
+  ],
+  "pov": "third"
+ },
+ {
+  "id": "s21",
+  "genre": "satire",
+  "prompt": "Write a satire short story about a company that holds a meeting to plan meetings. Length: 300-500 words. Tell it in third person (he/she/they). Use these words somewhere in the story: committee, spreadsheet. Reply with the story only.",
+  "min_words": 300,
+  "max_words": 500,
+  "must": [
+   "committee",
+   "spreadsheet"
+  ],
+  "pov": "third"
+ },
+ {
+  "id": "s22",
+  "genre": "post-apocalyptic",
+  "prompt": "Write a post-apocalyptic short story about a farmer who hears a voice on an old radio. Length: 400-650 words. Tell it in first person (I/me). Use these words somewhere in the story: seeds, radio. Reply with the story only.",
+  "min_words": 400,
+  "max_words": 650,
+  "must": [
+   "seeds",
+   "radio"
+  ],
+  "pov": "first"
+ },
+ {
+  "id": "s23",
+  "genre": "myth",
+  "prompt": "Write a myth short story about how a blacksmith tricked the god of storms. Length: 300-500 words. Tell it in third person (he/she/they). Use these words somewhere in the story: thunder, forge. Reply with the story only.",
+  "min_words": 300,
+  "max_words": 500,
+  "must": [
+   "thunder",
+   "forge"
+  ],
+  "pov": "third"
+ },
+ {
+  "id": "s24",
+  "genre": "epistolary",
+  "prompt": "Write a epistolary short story about letters from a soldier to his younger sister. Length: 350-550 words. Tell it in first person (I/me). Use these words somewhere in the story: Dear, winter. Reply with the story only.",
+  "min_words": 350,
+  "max_words": 550,
+  "must": [
+   "Dear",
+   "winter"
+  ],
+  "pov": "first"
+ },
+ {
+  "id": "s25",
+  "genre": "psychological",
+  "prompt": "Write a psychological short story about a patient who insists the clock is lying. Length: 400-600 words. Tell it in first person (I/me). Use these words somewhere in the story: clock, therapist. Reply with the story only.",
+  "min_words": 400,
+  "max_words": 600,
+  "must": [
+   "clock",
+   "therapist"
+  ],
+  "pov": "first"
+ },
+ {
+  "id": "s26",
+  "genre": "heist",
+  "prompt": "Write a heist short story about a crew that robs a bank to return stolen money. Length: 450-700 words. Tell it in third person (he/she/they). Use these words somewhere in the story: vault, blueprint, alarm. Reply with the story only.",
+  "min_words": 450,
+  "max_words": 700,
+  "must": [
+   "vault",
+   "blueprint",
+   "alarm"
+  ],
+  "pov": "third"
+ },
+ {
+  "id": "s27",
+  "genre": "survival",
+  "prompt": "Write a survival short story about three days adrift after a shipwreck. Length: 350-550 words. Tell it in second person (you). Use these words somewhere in the story: raft, storm. Reply with the story only.",
+  "min_words": 350,
+  "max_words": 550,
+  "must": [
+   "raft",
+   "storm"
+  ],
+  "pov": "second"
+ },
+ {
+  "id": "s28",
+  "genre": "time travel",
+  "prompt": "Write a time travel short story about a man who keeps meeting his grandmother as a girl. Length: 400-650 words. Tell it in first person (I/me). Use these words somewhere in the story: paradox, photograph. Reply with the story only.",
+  "min_words": 400,
+  "max_words": 650,
+  "must": [
+   "paradox",
+   "photograph"
+  ],
+  "pov": "first"
+ },
+ {
+  "id": "s29",
+  "genre": "gothic",
+  "prompt": "Write a gothic short story about an heir who inherits a castle and its debts. Length: 400-600 words. Tell it in third person (he/she/they). Use these words somewhere in the story: candle, portrait, heir. Reply with the story only.",
+  "min_words": 400,
+  "max_words": 600,
+  "must": [
+   "candle",
+   "portrait",
+   "heir"
+  ],
+  "pov": "third"
+ }
+]

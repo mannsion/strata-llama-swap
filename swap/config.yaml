@@ -1,0 +1,35 @@
+# The models the API serves - one loaded at a time; a request for the other one swaps (~30 s).
+# Each model is a compose service in ../compose.yaml, started on a free local port.
+healthCheckTimeout: 1800        # first start of a model packs it once (minutes); later starts take ~30 s
+globalTTL: 0                    # never unload when idle
+sendLoadingState: false
+startPort: 5800
+
+macros:
+  up: env PORT=${PORT} docker compose -f /work/compose.yaml up --no-build --force-recreate --abort-on-container-exit
+  stop: docker compose -f /work/compose.yaml stop
+
+models:
+  Qwen3.8-Flash-Next-Uncensored-i1-IQ4_XS:
+    name: Qwen3.8 Flash Next Uncensored i1-IQ4_XS (imatrix-calibrated)
+    capabilities: &caps             # what /v1/models reports (architecture.input_modalities, context_length)
+      in: [text, image]
+      out: [text]
+      tools: true
+      context: 262144
+    cmd: ${up} strata-i1-iq4_xs
+    cmdStop: ${stop} strata-i1-iq4_xs
+    proxy: http://127.0.0.1:${PORT}
+    checkEndpoint: /health
+
+  Qwen3.8-Flash-Next-Uncensored-IQ4_XS:
+    name: Qwen3.8 Flash Next Uncensored IQ4_XS (static)
+    capabilities: *caps
+    cmd: ${up} strata-iq4_xs
+    cmdStop: ${stop} strata-iq4_xs
+    proxy: http://127.0.0.1:${PORT}
+    checkEndpoint: /health
+
+hooks:
+  on_startup:
+    preload: [Qwen3.8-Flash-Next-Uncensored-i1-IQ4_XS]
