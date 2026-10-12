@@ -3,4 +3,5 @@ FROM docker:28-cli
 ARG LS_VER=260
 RUN wget -qO- https://github.com/mostlygeek/llama-swap/releases/download/v${LS_VER}/llama-swap_${LS_VER}_linux_amd64.tar.gz \
     | tar xz -C /usr/local/bin llama-swap
+COPY --chmod=755 rocm-smi /usr/local/bin/rocm-smi
 ENTRYPOINT ["llama-swap"]

@@ -45,6 +45,8 @@ services:
     restart: unless-stopped
     group_add: ["${DOCKER_GID}"]
     command: ["-config", "/work/swap/config.yaml", "-listen", "${BIND_ADDR}:${API_PORT}"]
+    environment:
+      GPU_PCI: ${GPU_PCI}                  # for the GPU panel (swap/rocm-smi)
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - .:/work:ro                         # compose.yaml + .env, for starting the model services

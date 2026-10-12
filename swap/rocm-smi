@@ -1,0 +1,10 @@
+#!/bin/sh
+# Stand-in for rocm-smi: llama-swap's GPU panel (temps, power, fan, use, VRAM) runs `rocm-smi ... --csv` and reads its
+# CSV. This prints the same columns for the R9700 ($GPU_PCI) straight from the amdgpu sysfs files.
+d=/sys/bus/pci/devices/${GPU_PCI:?}
+h=$(ls -d "$d"/hwmon/hwmon* | head -1)
+r() { cat "$1" 2>/dev/null || echo 0; }
+c() { awk "BEGIN { printf \"%.1f\", $(r "$1") / ${2:-1000} }"; }
+pwm=$(r "$h/pwm1"); max=$(r "$h/pwm1_max"); [ "$max" -gt 0 ] || max=255
+echo "device,GPU ID,Temperature (Sensor edge) (C),Temperature (Sensor junction) (C),Temperature (Sensor memory) (C),Fan speed (level),Fan speed (%),Fan RPM,Average Graphics Package Power (W),GPU use (%),GPU memory use (%),Memory Activity,VRAM Total Memory (B),VRAM Total Used Memory (B),Card series,Card model,Card vendor,Card SKU"
+echo "card0,$(r "$d/device"),$(c "$h/temp1_input"),$(c "$h/temp2_input"),$(c "$h/temp3_input"),$pwm,$((pwm * 100 / max)),$(r "$h/fan1_input"),$(c "$h/power1_average" 1000000),$(r "$d/gpu_busy_percent"),$(r "$d/mem_busy_percent"),N/A,$(r "$d/mem_info_vram_total"),$(r "$d/mem_info_vram_used"),Radeon AI PRO R9700,$(r "$d/device"),$(r "$d/vendor"),N/A"
